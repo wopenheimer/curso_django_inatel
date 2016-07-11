@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load resource_filtros %}
+
+{% load resource_tags %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <p>{{course_name}}</p>
+    {% for aluno in alunos_list %}
+        <li> {{aluno.name | replace:"ão"}}</li>
+    {% endfor %}
+
+    <p>VEICULOS</p>
+
+
+
+    {% get_vehicles 2 as vehicles_entries %}
+
+    {% for item in vehicles_entries %}
+        <li> {{item | to_upper:"Placa"}}</li>
+    {% endfor %}
+
+
+
+{% endblock %}
